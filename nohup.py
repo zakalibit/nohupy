@@ -31,9 +31,6 @@ import os
 import sys
 import signal
 
-if len(sys.argv) < 2:
-	print "usage: nohup.py utility [arg ...]"
-
 def dofile():
 	p='nohup.out'
 	try:
@@ -69,6 +66,7 @@ def donohup(argv):
 
 	signal.signal(signal.SIGHUP, signal.SIG_IGN)
 	os.execvp(argv[1], argv[1:])
+
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
